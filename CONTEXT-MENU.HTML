@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Context Menu</title>
+    <style>
+        #contextMenu {
+            position: absolute;
+            display: none;
+            background-color: white;
+            border: 1px solid black;
+            padding: 30px;
+            z-index: 1000;
+        }
+        #whole {
+    width: 70%;
+    margin: 100px auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 100px;
+        }
+    </style>
+</head>
+<body> <div id="whole";>
+    <h1>Custom Context Menu    <br> BY SALAUDEEN MUBARAQ OLANSILE HND/230947</h1>
+</h1>
+    <div id="contextMenu">
+        <button onclick="changeBackgroundColor()">Change Background Color</button>
+        <button onclick="copyText()">Copy Text</button>
+        <button onclick="showTime()">Show Current Time</button>
+    </div>
+
+    <script>
+        const contextMenu = document.getElementById('contextMenu');
+
+        document.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+            contextMenu.style.left = `${e.pageX}px`;
+            contextMenu.style.top = `${e.pageY}px`;
+            contextMenu.style.display = 'block';
+        });
+
+        document.addEventListener('click', () => {
+            contextMenu.style.display = 'none';
+        });
+
+        function changeBackgroundColor() {
+            document.body.style.backgroundColor = 'CYAN';
+        }
+
+        function copyText() {
+            alert('Text copied!');
+        }
+
+        function showTime() {
+            alert(new Date().toLocaleTimeString());
+        }
+    </script>
+    </div>
+</body>
+</html>

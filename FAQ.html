@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic FAQ Section</title>
+    <style>
+        .faq {
+            margin-bottom: 20px;
+        }
+        .question {
+            background-color: #00c220;
+            padding: 10px;
+            cursor: pointer;
+            border: 4px solid #f00000;
+            color: white;
+        }
+        .answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0s ease;
+            background-color: #97e7ff;
+            padding: 0 10px;
+            border: 1px solid #ccc;
+            border-top: none;
+        }
+        .open .answer {
+            max-height: 2%;
+        }
+        #faqContainer{
+    width: 70%;
+    margin: 100px auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 100px;
+        }
+    </style>
+</head>
+<body>
+    <center>
+    <h1>Dynamic FAQ Section <br> SALAUDEEN MUBARAQ OLANSILE HND/230947</h1>
+</center>
+    <div id="faqContainer">
+        <div class="faq">
+            <div class="question">What is JavaScript?</div>
+            <div class="answer">JavaScript is a high-level programming language used to create interactive web pages.</div>
+        </div>
+        <div class="faq">
+            <div class="question">How does CSS work?</div>
+            <div class="answer">CSS stands for Cascading Style Sheets and is used to style and layout web pages.</div>
+        </div>
+        <div class="faq">
+            <div class="question">What is HTML?</div>
+            <div class="answer">HTML (HyperText Markup Language) is the standard markup language for creating web pages.</div>
+        </div>
+    </div>
+
+    <script>
+        const faqs = document.querySelectorAll('.faq');
+
+        faqs.forEach(faq => {
+            const question = faq.querySelector('.question');
+            question.addEventListener('click', () => {
+                faqs.forEach(otherFaq => {
+                    if (otherFaq !== faq) {
+                        otherFaq.classList.remove('open');
+                    }
+                });
+                faq.classList.toggle('open');
+            });
+        });
+    </script>
+</body>
+</html>

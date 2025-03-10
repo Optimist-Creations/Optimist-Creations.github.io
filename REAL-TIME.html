@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Search Filtering System</title>
+    <style>
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 5px 0;
+        }
+        input{
+            padding: 10px;
+            color:blue;
+            background-color: white;
+            font-size: 20pt;
+           
+                    }
+                    button{
+                        padding: 10px ;
+                        font-size: 18pt;
+                        width: 100px;
+                        background-color: cyan;
+                    }
+    </style>
+</head>
+<body> <center>
+    <h1>Real-Time Search Filtering System  <br> SALAUDEEN MUBARAQ OLANSILE HND/230947</h1>
+</h1> </center>
+    <input type="text" id="searchInput" placeholder="Search...">
+    <p></p><br> <button onclick="clearSearch()">Clear</button>
+<br> <h2>List of available items
+    <ul id="itemList" >
+        <li>Apple</li>
+        <li>Banana</li>
+        <li>Cherry</li>
+        <li>Date</li>
+        <li>Elderberry</li>
+        <li>Pineapple</li>
+        <li>Coconut</li>
+        <li>Mango</li>
+        <li>Cashew</li>
+    </ul>
+</h2>
+
+    <script>
+        const items = Array.from(document.querySelectorAll('#itemList li'));
+
+        function filterItems() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            items.forEach(item => {
+                if (item.textContent.toLowerCase().includes(query)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        document.getElementById('searchInput').addEventListener('input', filterItems);
+
+        function clearSearch() {
+            document.getElementById('searchInput').value = '';
+            filterItems();
+        }
+    </script>
+</body>
+</html>
+
+
+
+
