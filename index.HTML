@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery with Lightbox Effect</title>
+    <style>
+        .gallery {
+            display: flex;
+            gap: 10px;
+        }
+        .gallery img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            cursor: pointer;
+        }
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Image Gallery with Lightbox Effect</h1>
+    <div class="gallery">
+        <img src="A.jpg" alt="Image 1">
+        <img src="B.PNG" alt="Image 2">
+        <img src="C.jpeg" alt="Image 3">
+    </div>
+
+    <div class="lightbox" id="lightbox">
+        <img id="lightboxImage">
+    </div>
+
+    <script>
+        const images = document.querySelectorAll('.gallery img');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightboxImage');
+
+        images.forEach(image => {
+            image.addEventListener('click', () => {
+                lightboxImage.src = image.src;
+                lightbox.style.display = 'flex';
+            });
+        });
+
+          
+    </script>
+</body>
+</html>
+
+
+
